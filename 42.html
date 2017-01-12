@@ -24,11 +24,9 @@
       });
 
       countryApp.factory('countries', function($http){
-
         var cachedData;
-
         function getData(callback){
-          if(cachedData) {
+          if (cachedData) {
             callback(cachedData);
           } else {
             $http.get('countriesGDP.json').success(function(data){
@@ -37,7 +35,6 @@
             });
           }
         }
-
         return {
           list: getData,
           find: function(name, callback){
